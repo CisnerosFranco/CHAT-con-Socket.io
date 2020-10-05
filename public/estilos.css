@@ -1,0 +1,128 @@
+body {
+    background: #23b923;
+    padding: 0 !important;
+}
+/*  CONTAINER */
+.container {
+    min-height: 100vh;
+    width: 90vw;
+    margin: auto;
+    padding-bottom: 30px;
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 15px;
+    background: rgb(4, 4, 231);
+    color: #f8f8f8;
+    padding: 5px 7px;
+    border-radius: 3px;
+}
+
+
+
+/*MESSAGE > CONTAINER-MESSAGE*/
+.container-messages {
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-between;
+    border-radius: 2px;
+    padding-top: 25px;
+}
+
+/*MESSAGE*/
+
+.container #messages {
+    padding: 15px 0px;
+    flex-grow: 2;
+    background: rgb(236, 236, 236);
+    margin-top: 25px;
+    padding-left: 20px;
+    max-height: 100vh;
+    overflow: auto;
+    min-height: 500px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.container #messages span{  
+    display: block;
+    width: 90%;
+    padding: 7px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    
+}
+
+.container #messages span strong:nth-child(2) {
+    margin-left: 10px;
+}
+
+
+/*MESSAGE > FORM*/
+.form-container {
+    flex-grow: 0;
+    width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    padding: 7px;
+    margin: 20px;
+    padding-top: 10px;
+    background: #f8f8f8;
+    
+    margin-bottom: 25px;
+    margin:auto;
+}
+
+
+.form-container form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container form * {
+    width: 90%;
+    padding: 10px;
+    border-radius: 3px;
+    margin: 5px;
+    font-size: 16px;
+    outline: none !important;
+    
+}
+
+.form-container form input {
+    border: 1px solid #ccc6;
+}
+.form-container form textarea {
+    border: 1px solid #ccc6;
+    resize: none;
+}
+
+.form-container form .btn-submit {
+    width: 95%;
+    font-size: 18px;
+    background: rgb(5, 63, 255);
+    color: #f8f8f8;
+    border: 1px solid #ddd;
+}
+
+
+
+
+
+

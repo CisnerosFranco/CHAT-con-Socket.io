@@ -1,0 +1,54 @@
+<div class="container-messages row">
+    <div class="form-container col-12 col-lg-5">
+        <form action="" id="form-message">
+            <input type="text" id="message-origen" placeholder="mail origen">
+            <input type="text" id="message-destino" placeholder="mail destion">
+            <textarea name="" id="message-contain" cols="30" rows="10"></textarea>
+            <button type="submit" class="btn-submit">submit</button>
+        </form>
+    </div>
+    <div id="messages" class="col-12 col-lg-5">
+
+    </div>
+</div>
+
+
+<script src="/socket.io/socket.io.js" charset="utf-8"></script>
+<script>
+    const socket = io();
+
+    const messageContainer = document.getElementById('messages');
+    const form = document.getElementById('form-message');
+    const origen = document.getElementById('message-origen');
+    const destino = document.getElementById('message-destino');
+    const message = document.getElementById('message-contain');
+
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        //enviamos a traves de enventos por socket
+        socket.emit('mensajesEntrantes', {
+            origen: origen.value.trim(),
+            destino: destino.value.trim(),
+            contenido: message.value.trim(),
+        })
+        message.value = '';
+    })
+
+    socket.on('mensajeSaliente', data => {
+        messageContainer.innerHTML = '';
+        if (data.status !== 200) {
+            alert('no se pudo conectar a la base de datos, intentelo mas tarde')
+        }
+        else {
+            data.messages.forEach(mssg => {
+                let span = document.createElement('span');
+                span.innerHTML = `<strong>${mssg.origen}</strong>  ${mssg.contenido}`
+                messageContainer.appendChild(span);
+            })
+        }
+    })
+
+
+</script>
